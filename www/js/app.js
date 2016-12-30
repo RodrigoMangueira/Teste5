@@ -55,17 +55,15 @@ angular.module('starter', ['ionic','ngCordova'])
     $scope.imageCamera = undefined;
 
   ImageUtil.getImage(ImageUtil.cameraOptions.CAMERA, function(imageData){
-    console.log("sucesso");
+    //console.log("sucesso");
     $scope.imageCamera = "data:image/jpeg;base64," + imageData;
 },
 
   function(err){
-
     console.log(err);
   }
 );
 }
-
 
 
 $scope.onFilter = function(option){
