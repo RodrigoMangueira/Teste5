@@ -43,38 +43,50 @@ angular.module('starter', ['ionic','ngCordova'])
  // alert("onClick");
 
 
+//////////////////////////////////////////////Home////////////////////////////////////
 
-.controller('HomeController', function($scope) {
+.controller('HomeController', function($scope, FileUtil) {
   //document.addEventListener("deviceready", function () {
+    ionic.Platform.ready(function(){
+        FileUtil.load();
+          $scope.images = FileUtil.images;
+          });
+        })
 
-})
+//////////////////////////////////////////////Camera//////////////////////////////////
 
-
-.controller("CameraController", function($scope, ImageUtil) {
+.controller("CameraController", function($scope, ImageUtil, FileUtil) {
   $scope.onTabSelect = function(){
     $scope.imageCamera = undefined;
 
   ImageUtil.getImage(ImageUtil.cameraOptions.CAMERA, function(imageData){
-    console.log("sucesso");
-    $scope.imageCamera = "data:image/jpeg;base64," + imageData;
-},
+       alert("salvaou arquivo");
+         $scope.imageCamera = "data:image/jpeg;base64," + imageData;
+              },
 
-  function(err){
-
-    console.log(err);
-  }
-);
-}
-
+             function(err){
+            alert("erro na camera", + err);
+         }
+      );
+        }
 
 
 $scope.onFilter = function(option){
   ImageUtil.filterImage("imageCamera", option);
 }
 
+$scope.onSave = function(){
+  //alert("ok");
+    var canvas = document.getElementById("imageCamera");
+    var dataUrl = canvas.toDataURL;
+    FileUtil.Save(dataUrl);
 
+}
 })
-.controller('GalleryController', function($scope, ImageUtil){
+
+//////////////////////////////////////////////Galeria//////////////////////////////////
+
+.controller('GalleryController', function($scope, ImageUtil, FileUtil){
 
     $scope.onTabSelect = function(){
       $scope.imageGallery = undefined;
@@ -85,10 +97,17 @@ $scope.onFilter = function(option){
         },
       function(err){
           console.log(err);
-
         }
     );
   }
+
+  $scope.onSave = function(){
+  //alert("ok");
+    var canvas = document.getElementById("imageGallery");
+    var dataUrl = canvas.toDataURL();
+    FileUtil.Save(dataUrl);
+
+}
 
   $scope.onFilter = function(option){
   ImageUtil.filterImage("imageGallery", option);

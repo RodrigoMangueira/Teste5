@@ -15,13 +15,12 @@ angular.module("starter").factory("ImageUtil", function($cordovaCamera){
       sourceType: option,
       allowEdit: false,
       encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 300,
-      targetHeight: 300,
+      targetWidth: 330,
+      targetHeight: 330,
       popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false,
-      correctOrientation:true
+      saveToPhotoAlbum: true,
+      correctOrientation: false
     };
-
 
 
     $cordovaCamera.getPicture(options).then(
@@ -37,6 +36,17 @@ angular.module("starter").factory("ImageUtil", function($cordovaCamera){
 
 util.filterImage = function(imgId, option){
 
+  /*Caman("#" + imgId, function () {
+  this.resize({
+    width: 300,
+    height: 500
+  });
+
+  // You still have to call render!
+  this.render();
+  //this.reset();
+  });*/
+
  Caman("#" + imgId, function(){
 
 
@@ -47,6 +57,7 @@ util.filterImage = function(imgId, option){
 
       case 2:
         this.vintage();
+
       break;
 
 
@@ -58,7 +69,9 @@ util.filterImage = function(imgId, option){
         this.reset();
       break;
     }
+    
         this.render();
+
 });
 }
   return util;

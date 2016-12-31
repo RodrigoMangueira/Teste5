@@ -3,50 +3,54 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <title>Teste 5</title>
 
     <link rel="manifest" href="manifest.json">
-
-
-
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
-
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-     <script type = "text/javascript" src="js/ng-cordova.min.js"></script> 
-
+    <script type = "text/javascript" src="js/ng-cordova.min.js"></script> 
     <!-- cordova script (this will be a 404 during development) -->
+
     <script src="cordova.js"></script>
-     
-     <script type ="text/javascript" src="js/caman.full.min.js"></script>
- 
+    <script type ="text/javascript" src="js/caman.full.min.js"></script>
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script type ="text/javascript" src="js/Image-Util.js"></script>
+    <script type ="text/javascript" src="js/file-util.js"></script> 
  
-
+<!--////////////////////////////////////////Inicio//////////////////////////////////////////-->
   </head>
-  <body ng-app="starter">
+   <body ng-app="starter">
 
     <ion-pane>
       <ion-header-bar class="bar-assertive">
-        <h1 class="title">Teste 5</h1>
+        <h1 class="title" title-rigth >Teste 5</h1>
       </ion-header-bar>
-      <ion-tabs class="tabs-calm tabs-icon-top">
+      <ion-tabs class="tabs-assertive tabs-icon-top">
 
 
-
-   <ion-tab title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" ng-controller = "HomeController"  on-select="onTabSelect()">
+<!--///////////////////////////////////////////Home/////////////////////////////////////////-->
+   <ion-tab title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" 
+   ng-controller = "HomeController"  on-select="onTabSelect()">
       <ion-view>
       <ion-content>
-
-            <p>Aplicativo em desenvolvimento, alguns erros poderão 
-            ser pertinentes, e ao utiliza-lo, está
-            de acordo com os termos, onde qualquer informação ou imagens , poderá ser visualizada por terceiros.
-            Desde já agradeço a compreenção.
+ 
+            <p>Aplicativo em desenvolvimento, alguns erros poderão ser 
+               detectados. Ao utiliza o App está de acordo com os 
+               termos, onde qualquer informação salva, poderá ser 
+               visualizada por terceiros.
+               Desde já agradecemos a compreensão.
             </p>
+
+            <img class ="image-filter" ng-src = "img/Des.jpg" />
+
+              <div ng-repeat = "item in images track by $index">
+              <img ng-src = "{{item}}" alt = ""/>        
+              </div>
+
+       
 
       </ion-content>
       </ion-view>
@@ -54,21 +58,25 @@
     </ion-tab>
 
 
+<!--//////////////////////////////////////////////Camera//////////////////////////////////-->
 
-
-   <ion-tab title="Camera" icon-on="ion-ios-camera" icon-off=
-   "ion-ios-camera-outline" ng-controller = "CameraController" 
-   on-select="onTabSelect()">
+   <ion-tab title="Camera" icon-on="ion-ios-camera" icon-off= "ion-ios-camera-outline" 
+   ng-controller = "CameraController" on-select="onTabSelect()">
 
     <ion-view>
       
       <filter-bar></filter-bar>
        <ion-content>
  
-        <div class="card" ng-if="imageCamera !== undefined">
+        <div class="card"  ng-if = "imageCamera !== undefined">
           <div class = "item item-image">
 
-          <img class ="image-filter" ng-src="{{imageCamera}}" id="imageCamera" />
+            <button class = "button ion-ios-gear" ng-click = "onSave()">Salvar</button>     
+          
+
+          </div>
+        <div class = "item item-image">
+           <img class = "image-filter" ng-src = "{{imageCamera}}"  id = "imageCamera" />
 
         </div>
         </div>
@@ -78,19 +86,19 @@
     </ion-tab>  
 
 
-
-  <ion-tab title="Gallery" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline" ng-controller = "GalleryController"  on-select="onTabSelect()">
+<!--////////////////////////////////////////////////Galeria/////////////////////////////////-->
+  <ion-tab title="Gallery" icon-on="ion-ios-star" icon-off="ion-ios-star-outline" ng-controller = "GalleryController"  on-select="onTabSelect()">
 
       <ion-view>
       <filter-bar></filter-bar>
 
-
       <ion-content>
       <div class="card" ng-if="imageGallery !== undefined">
         <div class = "item item-image">
-          
 
-          <img ng-src = "{{imageGallery}}" id ="imageGallery" class ="image-filter"  />
+            <button class = "button ion-ios-gear" ng-click = "onSave()">Salvar</button> 
+
+          <img class ="image-filter" ng-src = "{{imageGallery}}" id ="imageGallery" />
 
         </div>
         </div>
@@ -102,14 +110,9 @@
 
   </ion-tab>
 
-  </ion-tabs>
 
-
-
-
-
-
-
+<!--/////////////////////////////////////////Fim///////////////////////////////////////-->
+     </ion-tabs>
     </ion-pane>
   </body>
 </html>
