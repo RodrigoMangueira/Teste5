@@ -32,11 +32,10 @@ function loadFileNames(){
 function openImage(name, success){
 	alert("Carregando imagens...");
 	alert(name);	
-		$cordovaFile.readAsDataUrl(cordovaFile.file.externalApplicationStorageDirectory, name).them
+		$cordovaFile.readAsText(cordovaFile.file.externalApplicationStorageDirectory, name).them
 		( function(result){
 	alert("imagem Carregada!");			
 			success(result);
-
 },
 
 	function(err){
@@ -52,12 +51,11 @@ util.load = function(){
 		for (var i = 0; i < util.fileNames.length; i++) {
 	alert("imagem push?");
 		openImage(util.fileNames[i], function(dataUrl){
-	alert("imagem push!");			
+	alert("imagem push!");	
 			util.images.push(dataUrl);
 
 		})
 	}
-
 };
 
 

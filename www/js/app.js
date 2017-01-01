@@ -76,7 +76,9 @@ angular.module('starter', ['ionic','ngCordova'])
 
 
 $scope.onFilter = function(option){
+  alert(option);
   ImageUtil.filterImage("imageCamera", option);
+
 }
 
 $scope.onSave = function(){
@@ -85,7 +87,7 @@ $scope.onSave = function(){
     var dataUrl = canvas.toDataURL;
     FileUtil.Save(dataUrl);
 
-}
+};
 })
 
 //////////////////////////////////////////////Galeria//////////////////////////////////

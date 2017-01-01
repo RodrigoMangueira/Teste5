@@ -22,7 +22,7 @@
  
 <!--////////////////////////////////////////Inicio//////////////////////////////////////////-->
   </head>
-   <body ng-app="starter" class="platform-android platform-cordova platform-webview">
+   <body ng-app="starter">
 
     <ion-pane>
       <ion-header-bar class="bar-assertive">
@@ -35,7 +35,7 @@
    <ion-tab title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" 
    ng-controller = "HomeController"  on-select="onTabSelect()">
       <ion-view>
-      <ion-content>
+        <ion-content>
  
             <p>Aplicativo em desenvolvimento, alguns erros poderão ser 
                detectados. Ao utiliza o App está de acordo com os 
@@ -43,16 +43,20 @@
                visualizada por terceiros.
                Desde já agradecemos a compreensão.
             </p>
-
             <img class ="image-filter" ng-src = "img/Des.jpg" />
 
-              <div ng-repeat = "item in images track by $index">
-              <img ng-src = "{{item}}" alt = ""/>        
+              <div ng-repeat = "item in images track by $index"> 
+              <div class "card">
+              <div class "item item-image">
+              <img ng-src = "{{item}}" alt = ""/>    
+
+              </div>
+              </div>              
               </div>
 
        
 
-      </ion-content>
+        </ion-content>
       </ion-view>
 
     </ion-tab>
