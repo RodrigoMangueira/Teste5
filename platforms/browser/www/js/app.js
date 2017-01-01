@@ -47,11 +47,14 @@ angular.module('starter', ['ionic','ngCordova'])
 
 .controller('HomeController', function($scope, FileUtil) {
   //document.addEventListener("deviceready", function () {
+  $scope.onTabSelect = function(){  
     ionic.Platform.ready(function(){
         FileUtil.load();
           $scope.images = FileUtil.images;
           });
+    }
         })
+
 
 //////////////////////////////////////////////Camera//////////////////////////////////
 
@@ -60,9 +63,10 @@ angular.module('starter', ['ionic','ngCordova'])
     $scope.imageCamera = undefined;
 
   ImageUtil.getImage(ImageUtil.cameraOptions.CAMERA, function(imageData){
-       alert("salvaou arquivo");
+       alert("salvou no arquivo");
          $scope.imageCamera = "data:image/jpeg;base64," + imageData;
               },
+
 
              function(err){
             alert("erro na camera", + err);
@@ -91,9 +95,7 @@ $scope.onSave = function(){
     $scope.onTabSelect = function(){
       $scope.imageGallery = undefined;
         ImageUtil.getImage(ImageUtil.cameraOptions.GALLERY, function(imageData){
-        
         $scope.imageGallery = "data:image/jpeg;base64," + imageData;
-
         },
       function(err){
           console.log(err);

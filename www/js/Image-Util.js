@@ -10,7 +10,7 @@ angular.module("starter").factory("ImageUtil", function($cordovaCamera){
 
   util.getImage = function(option, success, error){
       var options = {
-      quality: 100,
+      quality: 50,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: option,
       allowEdit: false,
@@ -20,14 +20,14 @@ angular.module("starter").factory("ImageUtil", function($cordovaCamera){
       popoverOptions: CameraPopoverOptions,
       saveToPhotoAlbum: true,
       correctOrientation: false
-    };
+    };                      
 
 
     $cordovaCamera.getPicture(options).then(
       function(imageData) {
           success(imageData);
-      //var image = document.getElementById('myImage');
-     // image.src = "data:image/jpeg;base64," + imageData;
+     // var image = document.getElementById('myImage');
+     //image.src = "data:image/jpeg;base64," + imageData;
     }, function(err) {
       error(err);
     });

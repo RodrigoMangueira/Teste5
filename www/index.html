@@ -94,13 +94,16 @@
 
       <ion-content>
       <div class="card" ng-if="imageGallery !== undefined">
+
         <div class = "item item-image">
 
             <button class = "button ion-ios-gear" ng-click = "onSave()">Salvar</button> 
-
-          <img class ="image-filter" ng-src = "{{imageGallery}}" id ="imageGallery" />
-
         </div>
+
+        <div class = "item item-image">
+          <img class ="image-filter" ng-src = "{{imageGallery}}" id ="imageGallery" />
+        </div>
+        
         </div>
 
 
