@@ -74,20 +74,19 @@ angular.module('starter', ['ionic','ngCordova'])
       );
         }
 
+$scope.onSave = function(){
+  alert("ok");
+    var canvas = document.getElementById("imageCamera");
+    var dataUrl = canvas.toDataURL();
+    FileUtil.Save(dataUrl);
 
+}
 $scope.onFilter = function(option){
   alert(option);
   ImageUtil.filterImage("imageCamera", option);
 
 }
 
-$scope.onSave = function(){
-  //alert("ok");
-    var canvas = document.getElementById("imageCamera");
-    var dataUrl = canvas.toDataURL;
-    FileUtil.Save(dataUrl);
-
-};
 })
 
 //////////////////////////////////////////////Galeria//////////////////////////////////

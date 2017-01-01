@@ -34,7 +34,7 @@ function openImage(name, success){
 	alert(name);	
 		$cordovaFile.readAsText(cordovaFile.file.externalApplicationStorageDirectory, name).them
 		( function(result){
-	alert("imagem Carregada!");			
+	alert("imagem Carregada!");
 			success(result);
 },
 

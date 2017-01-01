@@ -10,15 +10,15 @@ angular.module("starter").factory("ImageUtil", function($cordovaCamera){
 
   util.getImage = function(option, success, error){
       var options = {
-      quality: 50,
+      quality: 10,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: option,
       allowEdit: false,
       encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 330,
-      targetHeight: 330,
+      targetWidth: 300,
+      targetHeight: 300,
       popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: true,
+      saveToPhotoAlbum: false,
       correctOrientation: false
     };                      
 
