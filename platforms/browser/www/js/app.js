@@ -67,7 +67,6 @@ angular.module('starter', ['ionic','ngCordova'])
          $scope.imageCamera = "data:image/jpeg;base64," + imageData;
               },
 
-
              function(err){
             alert("erro na camera", + err);
          }
@@ -78,7 +77,7 @@ $scope.onSave = function(){
   alert("ok");
     var canvas = document.getElementById("imageCamera");
     var dataUrl = canvas.toDataURL();
-    FileUtil.Save(dataUrl);
+    FileUtil.save(dataUrl);
 
 }
 $scope.onFilter = function(option){
@@ -108,7 +107,7 @@ $scope.onFilter = function(option){
   //alert("ok");
     var canvas = document.getElementById("imageGallery");
     var dataUrl = canvas.toDataURL();
-    FileUtil.Save(dataUrl);
+    FileUtil.save(dataUrl);
 
 }
 

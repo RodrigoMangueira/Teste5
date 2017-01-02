@@ -10,7 +10,7 @@ angular.module("starter").factory("ImageUtil", function($cordovaCamera){
 
   util.getImage = function(option, success, error){
       var options = {
-      quality: 10,
+      quality: 100,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: option,
       allowEdit: false,
