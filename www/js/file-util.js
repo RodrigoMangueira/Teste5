@@ -1,20 +1,19 @@
-angular.module("starter").factory("FileUtil",function($cordovaFile){
- 
-var util ={};
+angular.module("starter").factory("FileUtil", function($cordovaFile) {
+var util = {};
 
 util.fileNames = [];
 util.images = [];
 
-function getNewName(){
-	alert("new name?");
+function getNewName() {
+//	alert("new name?");
 		var today = new Date();
-	alert(today);
+//	alert(today);
 		return today.getHours().toString() + today.getMinutes().toString() + today.getSeconds().toString() + ".jpg"; //
 
 };
 
-function saveFileNames(fileNames){
-	alert("save file name ok");
+function saveFileNames(fileNames) {
+//	alert("save file name ok");
 		var lista = angular.toJson(fileNames);
 		localStorage.setItem("fileNames", lista);
 	alert(lista);
@@ -22,19 +21,19 @@ function saveFileNames(fileNames){
 
 
 function loadFileNames(){
-	alert("Carregando nomes?");
+//	alert("Carregando nomes?");
 		var lista = localStorage.getItem("fileNames");
-	alert("Carregando nomes ok!");
+//	alert("Carregando nomes ok!");
 		return angular.fromJson(lista) || [];
 };
 
 
 function openImage(name, success){
-	alert("Carregando imagens...");
+//	alert("Carregando imagens...");
 	alert(name);	
-		$cordovaFile.readAsText(cordova.file.externalApplicationStorageDirectory, name).them
+		$cordovaFile.readAsText(cordova.file.externalApplicationStorageDirectory, name).then
 		( function(result){
-	alert("imagem Carregada!");
+//	alert("imagem Carregada!");
 			success(result);
 },
 
@@ -46,12 +45,12 @@ function openImage(name, success){
 };
 
 util.load = function(){
-	alert("Carregar...");
+//	alert("Carregar...");
 		util.fileNames = loadFileNames();
 		for (var i = 0; i < util.fileNames.length; i++) {
-	alert("imagem push?");
+//	alert("imagem push?");
 		openImage(util.fileNames[i], function(dataUrl){
-	alert("imagem push!");	
+//	alert("imagem push!");	
 			util.images.push(dataUrl);
 
 		})
@@ -59,19 +58,19 @@ util.load = function(){
 };
 
 
-util.save = function(dataUrl){
+util.save = function(dataUrl) {
 	var name = getNewName();
 //	alert("new name ok");
 
     $cordovaFile.writeFile(cordova.file.externalApplicationStorageDirectory, name, dataUrl, true)
       .then(function (result) {
-    alert ("salvou?");
+   alert ("salvou?");
         util.images.push(dataUrl);
     //alert ("salvou???");       
         util.fileNames.push(name);
     alert ("salvou!");
     	saveFileNames(util.fileNames);
-     alert (name);
+     alert ("Nome atual", + name);
       }, 
 
       function (err) {

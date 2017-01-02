@@ -1,4 +1,4 @@
-angular.module("starter").factory("ImageUtil", function($cordovaCamera){
+angular.module("starter").factory("ImageUtil", function($cordovaCamera, $ionicLoading){
   var util ={};
 
   util.cameraOptions ={
@@ -35,20 +35,9 @@ angular.module("starter").factory("ImageUtil", function($cordovaCamera){
   };
 
 util.filterImage = function(imgId, option){
-
-  /*Caman("#" + imgId, function () {
-  this.resize({
-    width: 300,
-    height: 500
-  });
-
-  // You still have to call render!
-  this.render();
-  //this.reset();
-  });*/
+  $ionicLoading.show();
 
  Caman("#" + imgId, function(){
-
 
     switch(option){
       case 1:
@@ -57,9 +46,7 @@ util.filterImage = function(imgId, option){
 
       case 2:
         this.vintage();
-
       break;
-
 
       case 3:
         this.pinhole();
@@ -69,9 +56,10 @@ util.filterImage = function(imgId, option){
         this.reset();
       break;
     }
-    
-        this.render();
 
+        $ionicLoading.show();   
+        this.render();
+        $ionicLoading.hide();
 });
 }
   return util;

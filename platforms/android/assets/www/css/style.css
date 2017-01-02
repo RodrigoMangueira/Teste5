@@ -7,3 +7,8 @@ width:  100%;
 /*position: absolute;*/
 
 }
+
+.transparent{
+
+	background: transparent !important;
+}
